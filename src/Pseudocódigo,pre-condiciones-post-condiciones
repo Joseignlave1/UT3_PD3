@@ -1,0 +1,162 @@
+UT3_PD3:
+
+1-Método insertar elemento en la lista al final(no está ordenada)
+
+Lenguaje Natural:
+
+Si la lista está vacia entonces el primero nodo pasa a ser el nuevo nodo que queremos insertar, sino nuestronodoActual es el primer elemento de la lista, recorremos la lista mientras el siguiente a nuestro nodo actual no sea nulo(así nos aseguramos que la lista tenga mínimo 2 elementos), terminamos de recorrer la Lista y cuándo lleguemos al final, añadimos el nuevo nodo.
+
+Pre condiciones: 
+-Los parámetros de etiqueta y dato no deben ser nulos.
+
+PostCondiciones:
+-El nodo siempre debe ser insertado al final
+-La lista no puede ser vacía al finalizar la ejecución del método.
+
+
+Pseudocódigo:
+
+Tlista.insertarAlFinal(etiqueta, dato)
+
+Com
+  Si vacia entonces
+     primero <= unNodo;
+  sino
+     nodoActual <= primero;
+  mientras 
+     nodoActual.siguiente <> nulo
+     nodoActual <= nodoActual.siguiente;
+  finMientras
+    nodoActual.siguiente = unNodo;
+  finSi
+Fin
+
+
+2-Método buscar un elemento en una Lista:
+
+Lenguaje Natural:
+
+Si la lista no está vacía, recorrerla desde el principio buscando el elemento que coincide con la etiqueta enviada por parámetro, si encontramos un elemento que coincida, devolvemos ese elemento, de lo contrario, si la lista está vacía o si recorremos toda la lista sin encontra un match, indicamos que la lista no contiene ningún elemento con la clave indicada.
+
+Pre Condiciones:
+-no debemos enviarle un clave vacía
+
+Post Condiciones:
+
+-El orden de la lista no se debe ver afectado al terminar la ejecución del método.
+-En caso de encontrar un match, el elemento devuelto tampoco se tiene que ver afectado.
+
+Tlista.buscar(etiqueta)
+
+Com
+ Si vacian entonces
+  Devolver nulo
+ Sino
+  Actual = primero
+  Mientras actual <> nulo
+   Si Actual.Etiqueta = unaEtiqueta
+ Devolver actual
+  Actual <= Actual.siguiente
+
+  FinMientras
+  Devolver nulo
+ finSi
+Fin
+
+
+3-Método eliminar un elemento de la lista, dada su clave.
+
+Pre Condiciones:
+
+-La lista no puede estar vacía
+-La clave no puede ser vacía
+
+
+Post Condiciones:
+-Si hay un match entonces la longitud de la lista ser menor a longitud inicial
+-Si no hay ningún elemento que haga match con la clave proporcionada entonces la longitud de la lista debe ser igual a la inicial.
+
+
+Lenguaje Natural:
+
+Recorremos la lista verificando si la clave de algún elemento coincide con la enviáda por parámetro, si coincide, entonces tenemos un match y eliminamos ese elemento, si no coincide, la lista se mantiene de la misma manera. si la clave del primer elemento coincido es un match, entonces eliminamos directamente ese elemento y no recorremos toda la lista
+
+Pseudocódigo:
+
+Recorremos la lista, si encontramos un match en el primer elemento, entonces lo eliminamos, sin necesidad de recorrerla entera, de lo contrario, recorremos la lista, hasta encontrar un match, si lo encontramos entonces lo eliminamos, si no lo encontramos entonces la clave pasada por parámetro no hizo match con ninguna clave en la lista.
+
+
+Tlista.eliminar(clave)
+Com
+Si vacia entonces
+  devolver falso
+fin Si
+
+Si primero.siguiente == nulo
+  Si primero.etiqueta == clave
+     primero <= nulo
+     devolver true
+  fin Si
+fin Si 
+
+Si actual.etiqueta == clave
+   temp <= actual.siguiente
+   primero <= temp 
+   devolver true
+fin Si
+
+mientras actual.siguiente != nulo 
+  Si actual.etiqueta == clave
+   temp <= actual.siguiente
+   primero <= temp
+   devolver true
+  fin Si
+
+actual = actual.getSiguiente
+fin mientras
+
+devolver falso;
+fin
+
+
+Método imprimir elementos de una lista:
+
+Pre-Condiciones:
+-La lista debe tener al menos un elemento.
+
+Post-Condiciones:
+-Al imprimir la lista, el orden de los elementos no se debe ver afectado.
+
+Pseudocódigo:
+
+Recorremos la lista, si la lista no es vacía, entonces nuestro nodoActual es el primer elemento de la lista, mientras este nodo actual no sea nulo, actualizamos su valor, recorriendo todos los nodos de la lista e imprimiendo su etiqueta.
+
+t.lista.imprimir()
+com
+aux <= " "
+si !vacia 
+  actual <= primero 
+  mientras actual != nulo
+    actual.imprimirEtiqueta
+    actual = actual.siguiente
+  fin mientras
+fin si
+devolver actual
+fin
+
+
+Método Crear los elementos de la lista:
+
+Pre-Condiciones:
+-La lista no debe tener elementos antes de ser creados.
+
+Post Condiciones:
+-La lista debe tener elementos después de ser creada
+
+Pseudocódigo:
+
+Inicializamos un nodo llamado primero, el cuál al principio se inicializa con un valor nulo
+
+t.lista.crear()
+
+primero <= nulo
